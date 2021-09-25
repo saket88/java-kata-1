@@ -24,7 +24,7 @@ public class ParserTest {
     public void parseMagzines(){
         Parser parser= new Parser("org/echocat/kata/java/part1/data/", ';');
 
-        List<Magazine> magazines=parser.parse("magazines..csv", Magazine.fromCsvRecord);
+        List<Magazine> magazines=parser.parse("magazines.csv", Magazine.fromCsvRecord);
 
         assertThat(magazines.size(),is(6));
     }

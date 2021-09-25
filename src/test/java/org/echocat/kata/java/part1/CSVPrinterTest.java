@@ -10,21 +10,23 @@ import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 public class CSVPrinterTest {
 
-    private CSVPrinter csvPrinter = new CSVPrinter();
+
 
 
 
     @Test
     public void findByIsbn() {
-        final String isbn = "5454-5587-3210";
+         CSVPrinter csvPrinter= new CSVPrinter();
+        final String isbn = "4545-8558-3232";
         final List<BaseProduct> byIsbn = csvPrinter.findByIsbn(isbn);
         assertThat(byIsbn.size(),is(equalTo(1)));
-        assertThat(byIsbn.get(0),is(equalTo(isbn)));
+        assertThat(byIsbn.get(0).getIsbn(),is(equalTo(isbn)));
 
     }
 
     @Test
     public void findByAuthor() {
+        CSVPrinter csvPrinter= new CSVPrinter();
         final String authorEmail = "null-gustafsson@echocat.org";
         final List<BaseProduct> byAuthor = csvPrinter.findByAuthor(authorEmail);
         assertThat(byAuthor.size(),is(equalTo(2)));
@@ -36,6 +38,7 @@ public class CSVPrinterTest {
 
     @Test
     public void getSortedByTitle() {
+        CSVPrinter csvPrinter= new CSVPrinter();
         final List<BaseProduct> sortedByTitle = csvPrinter.getSortedByTitle();
         assertThat(sortedByTitle.size(),is(equalTo(14)));
         final List<String> titles = sortedByTitle.stream().map(BaseProduct::getTitle)
